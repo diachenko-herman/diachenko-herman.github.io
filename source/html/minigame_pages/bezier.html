@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <!-- document head including metadata, icon for the browser tab, viewport settings, external resources (e.g. Google Fonts), ... -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width"/>
+
+        <title> Spaghetti alla Bézier | ScienTeens Lab | uni.lu </title>
+
+        <!-- loads and sets ScienTeens icon in tabs and bookmarks in different browsers --> 
+        <link rel="icon" sizes="any" href="../../../assets/images/scienteens_tab_icon.svg"/>
+        <link rel="apple-touch-icon" type="image/svg+xml" sizes="any" href="../../../assets/images/scienteens_tab_icon.svg"/>
+        <link rel="mask-icon" href="../../../assets/images/scienteens_tab_icon.svg"/>
+        <!-- includes Urbanist font (Google Fonts) into document -->
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"/>
+        <!-- includes Material Symbols (Google Fonts) into document -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+        <!-- loads and renders custom stylesheet for Bézier mini-game -->
+        <link rel="stylesheet" href="../../css/minigame_styling/bezier.css"/>
+
+        <!-- loads and executes custom scripts for dynamic page behaviour (in preserved order due to "defer" keyword) -->
+        <script src="../../js_ts/minigame_scripts/bezier_navigation.js" defer> </script>
+        <script src="../../js_ts/minigame_scripts/bezier_sharp_canvas.js" defer> </script>
+        <script src="../../js_ts/minigame_scripts/bezier_playground.js" defer> </script>
+    </head>
+
+    <!-- document body containing actually visible content of HTML document -->
+    <body>
+        <!-- top-level container for page layout -->
+        <div class="layout-container">
+            <!-- flexbox header encompassing game info & navigation elements -->
+            <div class="header">
+                <!-- container for mini-game description dropdown -->
+                <div class="mission-description">
+                    <!-- clickable dropdown button to expand/collapse mission descrption content -->
+                    <button class="description-toggler"> 
+                        Mission Description 
+                        <span class="material-symbols-rounded expand"> expand_circle_down </span>
+                    </button>
+
+                    <!-- collapsible dropdown content panel -->
+                    <div class="description-panel"> 
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                            aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore
+                            eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia
+                            deserunt mollit anim id est laborum. 
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- animated flexbox container for page navigation to related theory page or main page -->
+                <nav class="navigation-section">
+                    <!-- icon+text button for page navigation to related theory page -->
+                    <a href="../theory_pages/bezier.html">
+                        <button class="theory-button">
+                            <span class="material-symbols-rounded book"> local_library </span>
+                            <span class="textual-info"> Back to Theory </span>
+                        </button>
+                    </a>
+
+                    <!-- icon+text button for page navigation to main page -->
+                    <a href="../main_page.html">
+                        <button class="home-button">
+                            <span class="material-symbols-rounded hamburger"> menu_open </span>
+                            <span class="textual-info"> Back to Homebase </span>
+                        </button>
+                    </a>
+                </nav>
+            </div>
+
+            <!-- flexbox container for mini-game interface -->
+            <div class="game-container">
+                <canvas id="playground">
+                    <!-- fallback text for accessibility reasons -->
+                    Canvas allowing interactive dragging of Bézier curves to play obstacle parkour game
+                </canvas>
+
+                <!-- vertical flexbox container for success status of different game stages -->
+                <div class="game-status">
+                    <div class="gamecard level1">
+
+                    </div>
+
+                    <div class="gamecard level2">
+
+                    </div>
+
+                    <div class="gamecard level3">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

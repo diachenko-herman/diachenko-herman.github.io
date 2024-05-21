@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <!-- document head including metadata, icon for the browser tab, viewport settings, external resources (e.g. Google Fonts), ... -->
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width"/>
+
+        <title> Filters & Effects | ScienTeens Lab | uni.lu </title>
+
+        <!-- loads and sets ScienTeens icon in tabs and bookmarks in different browsers --> 
+        <link rel="icon" sizes="any" href="../../../assets/images/scienteens_tab_icon.svg"/>
+        <link rel="apple-touch-icon" type="image/svg+xml" sizes="any" href="../../../assets/images/scienteens_tab_icon.svg"/>
+        <link rel="mask-icon" href="../../../assets/images/scienteens_tab_icon.svg"/>
+        <!-- includes Urbanist font (Google Fonts) into document -->
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"/>
+        <!-- includes Material Symbols (Google Fonts) into document -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+        <!-- custom stylesheet for filter theory page -->
+        <link rel="stylesheet" href="../../css/theory_styling/filters.css"/>
+
+        <script src="../../js_ts/theory_scripts/theory_accordion.js" defer> </script>
+    </head>
+
+    <!-- document body containing actually visible content of HTML document -->
+    <body>
+        <!-- top-level container for page layout -->
+        <div class="layout-container">
+            <!-- flexbox container for left glass card containing theory concepts -->
+            <div class="glass-card theory-container">
+                <!-- flexbox container for theory page heading and home button -->
+                <div class="titlebar-container">
+                    <h1 class="theory-title"> FILTERS & EFFECTS. </h1>
+
+                    <a href="../main_page.html">
+                        <button class="home-button">
+                            <span class="material-symbols-rounded hamburger"> menu_open </span>
+                            <span class="textual-info"> Back to Homebase </span>
+                        </button>
+                    </a>
+                </div>
+
+                <!-- unordered list of dynamic accordion dropdowns -->
+                <ul class="dynamic-accordion">
+                    <!-- dropdown 1 -->
+                    <li>
+                        <button class="concept-toggler"> 
+                            What are Convolutional Matrices? 
+                            <span class="material-symbols-rounded expand"> expand_circle_down </span>
+                        </button>
+                        
+                        <div class="concept-panel">
+                            <p>
+                                As we already know, a digital image consists of many pixels. Now suppose you want to change this image to make it look blurrier,
+                                sharper, or perhaps to highlight certain features. Convolutional matrices are tools used to achieve these effects. When you apply
+                                a filter (like blur or sharpen), you're essentially applying a convolutional matrix to your image. The program does all the calculations
+                                in the background, letting you see the effect almost instantly.
+                            </p>
+                        </div>
+                    </li>
+
+                    <!-- dropdown 2 -->
+                    <li>
+                        <button class="concept-toggler"> 
+                            How do Convolutional Matrices work?
+                            <span class="material-symbols-rounded expand"> expand_circle_down </span>
+                         </button>
+
+                         <div class="concept-panel">
+                            <p>
+                                Think of a convolutional matrix as a small grid (usually 3x3 or 5x5). This grid has numbers in it, which determine how the
+                                image will change. This grid is placed over the image, aligning with pixels at different positions as it moves across the 
+                                entire image.
+                            </p>
+                            <p>
+                                For each position of the grid on the image, a calculation is made. Each pixel under the grid is multiplied by the corresponding
+                                number in the grid. All these products are added together to give a new value for the pixel in the center of the grid.
+                                By changing the numbers in the grid, you can control how the image is altered. For example, a certain grid might make the image 
+                                blurrier, another might enhance edges.
+                            </p>
+                        </div>
+                    </li>
+
+                    <!-- dropdown 3 -->
+                    <li>
+                        <button class="concept-toggler"> 
+                            Examples of Convolution Matrices usage
+                            <span class="material-symbols-rounded expand"> expand_circle_down </span>
+                        </button>
+
+                        <div class="concept-panel">
+                            <p>
+                                Blur: A simple blur effect can be achieved using a matrix where all numbers are equal, because each pixel becomes a mix of itself
+                                and its neighbors.
+                            </p>
+                            <p>
+                                Sharpen: A sharpening matrix often has a high number in the center and negative numbers around it. This setup increases the contrast
+                                between neighboring pixels, making the image look clearer.
+                            </p>
+                            <p>
+                                Edge Detection: These matrices are designed to highlight large differences in color, which correspond to edges within the image. They 
+                                can make lines and boundaries more apparent.
+                            </p>
+                        </div>
+                    </li>
+
+                    <!-- ... possibly more dropdowns ... -->
+                </ul>
+
+                <!-- flexbox container for "previous card" and "next card" buttons (or mini-game button if only one card) -->
+                <div class="navbar-container">
+                    <a href="../minigame_pages/filters.html">
+                        <button class="enter-game-button">
+                            <span class="material-symbols-rounded controller"> stadia_controller </span>
+                            <span class="textual-info"> Enter Mini-Game </span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- flexbox container for right glass card containing illustration of theory concepts -->
+            <div class="glass-card illustration-container">
+
+            </div>
+        </div>
+    </body>
+</html>

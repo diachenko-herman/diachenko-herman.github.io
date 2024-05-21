@@ -1,0 +1,332 @@
+*
+{
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.content-layout
+{
+    width: 100%;
+    height: 100%;
+    padding-top: 2%;
+    padding-bottom: 5.5%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-panel
+{
+    width: 19%;
+    height: 100%;
+}
+
+.middle-panel
+{
+    width: 100%;
+    height: 100%;
+    padding-top: 1%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10%;
+}
+
+.separation-line
+{
+    width: 1%;
+    height: 100%;
+    margin: 0% 3%;
+    
+    background-color: #90909040;
+    border-radius: 10px;
+}
+
+.right-panel
+{
+    width: 10%;
+    height: 100%;
+    padding-right: 3%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.static-text
+{
+    width: fit-content;
+    height: fit-content;
+    padding-top: 1%;
+    padding-left: 3%;
+    padding-right: 2%;
+    padding-bottom: 1%;
+    box-sizing: content-box;
+
+    background-color: #90909040;
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    cursor: default;
+
+    font-family: "Urbanist";
+    font-size: 100px;
+    font-weight: 800;
+    letter-spacing: 10px;
+    text-align: center;
+    color: #D8D8D8;
+}
+
+.toggled-text
+{
+    position: relative;
+
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.toggled-text > .animated-heading
+{
+    width: fit-content;
+    height: fit-content;
+
+    background-color: #90909040;
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    cursor: default;
+    opacity: 0;
+
+    display: inline-block;
+    position: absolute;
+
+    text-align: center;
+}
+
+.toggled-text > h1:nth-child(1)
+{
+    position: relative;
+    
+    padding-top: 2%;
+    padding-left: 3%;
+    padding-right: 7%;
+    padding-bottom: 2%;
+    box-sizing: content-box;
+
+    font-family: "Bungee Inline";
+    font-size: 100px;
+    font-weight: 400;
+    letter-spacing: 10px;
+    color: #6699CCFF;
+
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5%;
+
+    animation-name: toggle;
+    animation-duration: 15s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+
+.toggled-text h1:nth-child(1) span.hub
+{
+    font-size: 110%;
+    font-variation-settings: "FILL" 1, "wght" 600;
+    color: #6699CCFF;
+}
+
+.toggled-text h1:nth-child(2)
+{
+    position: absolute;
+
+    padding-top: 1%;
+    padding-left: 3%;
+    padding-right: 5%;
+    padding-bottom: 1%;
+    box-sizing: content-box;
+
+    font-family: "Pacifico";
+    font-size: 80px;
+    font-weight: 400;
+    letter-spacing: 12px;
+    color: #933081FF;
+
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 3%;
+
+    animation-name: toggle;
+    animation-duration: 15s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-delay: 5s;
+}
+
+.toggled-text h1:nth-child(2) span.controller
+{
+    font-size: 150%;
+    font-variation-settings: "FILL" 1;
+    color: #933081FF;
+}
+
+.toggled-text h1:nth-child(3)
+{
+    position: absolute;
+
+    width: fit-content;
+    height: fit-content;
+    padding-top: 2%;
+    padding-left: 3%;
+    padding-right: 5%;
+    padding-bottom: 1%;
+    box-sizing: content-box;
+
+    animation-name: toggle;
+    animation-duration: 15s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-delay: 10s;
+
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.toggled-text h1:nth-child(3) div:nth-child(1)
+{
+    width: fit-content;
+    height: fit-content;
+
+    font-family: "Gugi";
+    font-size: 90px;
+    font-weight: 400;
+    letter-spacing: 12px;
+    color: #C21807FF;
+}
+
+.toggled-text h1:nth-child(3) div:nth-child(2)
+{
+    width: fit-content;
+    height: fit-content;
+
+    font-family: "Gugi";
+    font-size: 70px;
+    font-weight: 400;
+    letter-spacing: 12px;
+    color: #FFFFFFFF;
+}
+
+.toggled-text h1:nth-child(3) div:nth-child(3)
+{
+    width: fit-content;
+    height: fit-content;
+
+    font-family: "Gugi";
+    font-size: 90px;
+    font-weight: 400;
+    letter-spacing: 12px;
+    color: #2388D1FF;
+
+    display: inline-flex;
+    justify-content: flex-start;
+    gap: 3%;
+}
+
+.toggled-text h1:nth-child(3) div span.student
+{
+    font-size: 130%;
+    font-variation-settings: "FILL" 1;
+    color: #2388D1FF;
+    background: linear-gradient(to left top, #C21807FF, #2388D1FF);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes toggle 
+{
+	0%
+    {
+		top: -80px;
+		transform: rotateX(-90deg);
+	}
+	11%
+    {
+		top: 10px;
+		transform: rotateX(0deg);
+		opacity: 1;
+	}
+	22%
+    {
+		top: -10px;
+		transform: rotateX(0deg);
+		opacity: 1;
+	}
+	33%
+    {
+		top: 30px;
+		transform: rotateX(+30deg);
+		opacity: 0;
+	}
+}
+
+.enter
+{   
+    text-align: center;
+    text-decoration: none;
+    font-size: 100px;
+    font-variation-settings: "FILL" 0, "wght" 600;
+    color: #D8D8D8;
+    transform: rotateZ(90deg);
+
+    animation-name: pulseExpand;
+    animation-duration: 2.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-delay: 6s;
+
+    border-radius: 50%;
+    border: none;
+}
+
+.enter:hover
+{
+    animation: none;
+    font-variation-settings: "FILL" 1, "wght" 600;
+    transform: scale(1.2) rotateZ(90deg);
+    transition: all 0.4s ease-in-out 0.1s;
+}
+
+@keyframes pulseExpand
+{
+    0%
+    {
+        box-shadow: 0 0 0 0 #90909040;
+        background-color: #90909040;
+    }
+    75%
+    {
+        box-shadow: 0 0 8px 15px #90909040;
+        background-color: #90909040;
+    }
+    100%
+    {
+        box-shadow: 0 0 0 0 #90909040;
+        background-color: #90909040;
+    }
+}

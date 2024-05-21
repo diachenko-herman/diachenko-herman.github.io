@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <!-- document head including metadata, icon for the browser tab, viewport settings, external resources (e.g. Google Fonts), ... -->
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width"/>
+
+        <title> Bézier Shapes | ScienTeens Lab | uni.lu </title>
+
+        <!-- loads and sets ScienTeens icon in tabs and bookmarks in different browsers --> 
+        <link rel="icon" sizes="any" href="../../../assets/images/scienteens_tab_icon.svg"/>
+        <link rel="apple-touch-icon" type="image/svg+xml" sizes="any" href="../../../assets/images/scienteens_tab_icon.svg"/>
+        <link rel="mask-icon" href="../../../assets/images/scienteens_tab_icon.svg"/>
+        <!-- includes Urbanist font (Google Fonts) into document -->
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"/>
+        <!-- includes Material Symbols (Google Fonts) into document -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+        <!-- custom stylesheet for Bézier theory page -->
+        <link rel="stylesheet" href="../../css/theory_styling/bezier.css"/>
+
+        <script src="../../js_ts/theory_scripts/theory_accordion.js" defer> </script>
+    </head>
+
+    <!-- document body containing actually visible content of HTML document -->
+    <body>
+        <!-- top-level container for page layout -->
+        <div class="layout-container">
+            <!-- flexbox container for left glass card containing theory concepts -->
+            <div class="glass-card theory-container">
+                <!-- flexbox container for theory page heading and home button -->
+                <div class="titlebar-container">
+                    <h1 class="theory-title"> BÉZIER SHAPES. </h1>
+
+                    <a href="../main_page.html">
+                        <button class="home-button">
+                            <span class="material-symbols-rounded hamburger"> menu_open </span>
+                            <span class="textual-info"> Back to Homebase </span>
+                        </button>
+                    </a>
+                </div>
+
+                <!-- unordered list of dynamic accordion dropdowns -->
+                <ul class="dynamic-accordion">
+                    <!-- dropdown 1 -->
+                    <li>
+                        <button class="concept-toggler"> 
+                            What are Bézier curves? 
+                            <span class="material-symbols-rounded expand"> expand_circle_down </span>
+                        </button>
+                        
+                        <div class="concept-panel">
+                            <p>
+                                Bézier curves are smooth and continuous curves that are essential in various fields, such as engineering and digital design. &#x1F3A8;
+                                They were named after Pierre Bézier who first used them to help design cars. &#x1F697;
+                                They are defined by two or more points which make the curve bend and twist in different ways. &#x1F30A;
+                            </p>
+                        </div>
+                    </li>
+
+                    <!-- dropdown 2 -->
+                    <li>
+                        <button class="concept-toggler"> 
+                            How are they used in computer graphics?
+                            <span class="material-symbols-rounded expand"> expand_circle_down </span>
+                         </button>
+
+                         <div class="concept-panel">
+                            <p>
+                                In computer graphics, Bézier curves play a critical role. 
+                                They are pivotal in designing fonts &#x1F524;, animating characters &#x1F9B8;, and crafting user interfaces &#x1F39B;&#xFE0F; that are not only appealing but also scalable. 
+                                The ability of Bézier curves to maintain their integrity at various scales makes them ideal for graphics that need to adapt to different sizes and resolutions without losing detail or clarity. &#x1F50D;
+                            </p>
+                        </div>
+                    </li>
+
+                    <!-- dropdown 3 -->
+                    <li>
+                        <button class="concept-toggler"> 
+                            How are they drawn?
+                            <span class="material-symbols-rounded expand"> expand_circle_down </span>
+                        </button>
+
+                        <div class="concept-panel">
+                            <p>
+                                To draw Bézier curves, one begins with setting control points in a design space. These points act as anchors and guides for the curve. 
+                                By varying a parameter known as t, which ranges from 0 to 1, the curve is constructed through a series of calculations that interpolate the positions between these points.
+
+                                The resulting path smoothly transitions from one end to the other, closely following the control points, which determine the curve's trajectory and form.
+                            </p>
+                        </div>
+                    </li>
+
+                    <!-- ... possibly more dropdowns ... -->
+                </ul>
+
+                <!-- flexbox container for "previous card" and "next card" buttons (or mini-game button if only one card) -->
+                <div class="navbar-container">
+                    <a href="../minigame_pages/bezier.html">
+                        <button class="enter-game-button">
+                            <span class="material-symbols-rounded controller"> stadia_controller </span>
+                            <span class="textual-info"> Enter Mini-Game </span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- flexbox container for right glass card containing illustration of theory concepts -->
+            <div class="glass-card illustration-container">
+
+            </div>
+        </div>
+    </body>
+</html>

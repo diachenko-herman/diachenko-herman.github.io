@@ -1,0 +1,385 @@
+html,body
+{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+}
+
+.layout-container
+{
+	width: 100%;
+	height: 100%;
+	padding-top: 0;
+	padding-left: 2%;
+	padding-right: 2%;
+	padding-bottom: 0;
+	box-sizing: border-box;
+	margin: 0;
+
+	background-image: url("../../../assets/images/bezier_page_background.png");
+	background-repeat: repeat;
+	background-attachment: fixed;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header
+{
+	width: 100%;
+	height: fit-content;
+	padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.mission-description
+{
+	width: min-content;
+	height: fit-content;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.description-toggler
+{
+	width: fit-content;
+	height: fit-content;
+	padding: 25px;
+	box-sizing: border-box;
+	margin: 0;
+
+	background-color: #0F192D99;
+	backdrop-filter: blur(30px);
+	border-radius: 0 0 20px 20px;
+	border-style: none;
+	cursor: pointer;
+
+	text-align: left;
+	white-space: nowrap;
+    font-family: "Urbanist";
+    font-weight: 800;
+    font-size: 30px;
+    letter-spacing: 2px;
+    color: #D8D8D8FF;
+
+	transition: background-color 0.5s ease-in-out;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.description-toggler:hover,.description-toggler.opened
+{
+	background-color: #D8D8D820;
+}
+
+.material-symbols-rounded 
+{
+    font-variation-settings:
+    "FILL" 1,
+    "wght" 500,
+    "GRAD" 0,
+    'opsz' 24;
+    color: #D8D8D8FF;
+}
+
+.description-toggler span.expand
+{
+	padding: 0;
+	margin-left: 100px;
+
+	font-size: 44px;
+	transition: transform 1s ease-in-out;
+}
+
+.description-toggler.opened span.expand
+{
+	transform: rotateZ(180deg);	
+}
+
+.description-panel
+{
+	width: 175%;
+	height: fit-content;
+	max-height: 0;			/* dynamically computed via script (upon click event), not visible at first */
+	padding: 0;
+	box-sizing: border-box;
+	margin: 3% 0;
+
+	background-color: #D8D8D820;
+	backdrop-filter: blur(30px);
+	border-radius: 20px;
+	overflow: hidden;
+	transition: max-height 1s ease-in-out;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.description-panel p
+{
+	width: 100%;
+	height: fit-content;
+	padding: 25px;
+	box-sizing: border-box;
+	margin: 0;
+
+	text-align: justify;
+    font-family: "Urbanist";
+    font-weight: normal;
+    font-size: 22px;
+    letter-spacing: 0.75px;
+    color: #D8D8D8FF;
+}
+
+.navigation-section
+{
+	width: fit-content;
+	height: fit-content;
+	padding: 20px;
+	box-sizing: border-box;
+	margin: 0;
+
+	background-color: #0F192D99;
+	backdrop-filter: blur(30px);
+	border-radius: 0 0 20px 20px;
+	border-style: none;
+	cursor: default;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	column-gap: 30px;
+}
+
+a
+{
+	text-decoration: none;
+}
+
+.theory-button
+{
+    width: fit-content;
+    height: fit-content;
+    padding: 2px 0;
+    box-sizing: border-box;
+    margin: 0;
+
+    background: none;    		/* will be modified while hovering over navigation section area */
+    border-radius: 15px;
+    border-style: none;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+    overflow: hidden;
+    transition: background-color 0.5s ease-in-out 0.2s;
+}
+
+span.book
+{
+	padding-top: 4px;
+	padding-left: 0;
+    font-size: 46px;
+
+    transition: color 0.2s ease-in-out 0.2s; padding-left: 0.7s ease-in-out 0.2s;
+}
+
+.theory-button > span.textual-info
+{
+    max-width: 0;                   /* will be modified while hovering over navigation section area */
+    height: fit-content;
+	padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+
+    text-align: center;
+    white-space: nowrap;
+    font-family: "Urbanist";
+    font-weight: 800;
+    font-size: 26px;
+    letter-spacing: 0.75px;
+    color: #0F192DC5;
+    opacity: 0;                     /* will be modified while hovering over navigation section area */
+
+    transition: max-width 0.9s ease-in-out 0.2s, padding-left 0.7s ease-in-out 0.2s, padding-right 0.7s ease-in-out 0.2s, opacity 0.2s ease-in-out 0.2s;
+}
+
+.home-button
+{
+    width: fit-content;
+    height: fit-content;
+	padding: 2px 0;
+    box-sizing: border-box;
+	margin: 0;
+
+    background: none;    		/* will be modified while hovering over navigation section area */
+    border-radius: 15px;
+    border-style: none;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+    overflow: hidden;
+    transition: background-color 0.5s ease-in-out 0.2s;
+}
+
+span.hamburger
+{
+	padding-left: 0;
+	padding-right: 2px;
+    font-size: 50px;
+
+    transition: color 0.2s ease-in-out 0.2s; padding-left: 0.7s ease-in-out 0.2s;
+}
+
+.home-button > span.textual-info
+{
+    max-width: 0;                   /* will be modified while hovering over navigation section area */
+    height: fit-content;
+	padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+
+    text-align: center;
+    white-space: nowrap;
+    font-family: "Urbanist";
+    font-weight: 800;
+    font-size: 26px;
+    letter-spacing: 0.75px;
+    color: #0F192DC5;
+    opacity: 0;                     /* will be modified while hovering over navigation section area */
+
+    transition: max-width 0.9s ease-in-out 0.2s, padding-left 0.7s ease-in-out 0.2s, padding-right 0.7s ease-in-out 0.2s, opacity 0.2s ease-in-out 0.2s;
+}
+
+.navigation-section:hover
+{
+	/* transitions on home page button when hovering over navigation section area */
+	.home-button
+	{
+		background-color: #D8D8D8FF;
+	}
+    
+    span.hamburger
+    {
+		padding-left: 10px;
+        color: #0F192DC5;
+    }
+
+    .home-button span.textual-info
+    {
+        max-width: 300px;
+        padding-left: 13px;
+        padding-right: 13px;
+        opacity: 1;
+    }
+
+	/* transitions on theory page button when hovering over navigation section area */
+	.theory-button
+	{
+		background-color: #D8D8D8FF;
+	}
+    
+    span.book
+    {
+		padding-left: 10px;
+        color: #0F192DC5;
+    }
+
+    .theory-button span.textual-info
+    {
+        max-width: 300px;
+        padding-left: 17px;
+        padding-right: 12px;
+        opacity: 1;
+    }
+}
+
+.game-container
+{
+	width: 100%;
+	height: 86%;
+	padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+
+	background-color: #0F192D99;
+    backdrop-filter: blur(30px);
+    border-radius: 20px 20px 0 0;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+#playground
+{
+	width: 84%;
+	height: 93%;
+}
+
+.game-status
+{
+	width: 16%;
+	height: 100%;
+	padding-top: 2%;
+	padding-left: 1%;
+	padding-right: 2%;
+	padding-bottom: 2%;
+	box-sizing: border-box;
+	margin: 0;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	gap: 5%;
+}
+
+.gamecard
+{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+
+	background-color: #C91438FF;
+	border-radius: 20px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.level1
+{
+	background-color: #4DC970FF;
+}
