@@ -11,8 +11,6 @@ const layout = document.querySelector(".layout-container");
 // retrieve game container (adding/removing rounded corners of bottom edge when dropdown expanded/collapsed)
 const gameContainer = document.querySelector(".game-container");
 
-// retrieve 
-
 // retrieve mission description dropdown button
 const dropdown = document.querySelector(".description-toggler");
 

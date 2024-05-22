@@ -40,6 +40,28 @@ html,body
 .illustration-container
 {
     width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1.5%;
+
+}
+
+.illustration {
+    height: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+
+
+.image {
+    border-radius: 15px;
+    box-shadow: 0 0 20px 5px #0F192D99;
 }
 
 .glass-card
@@ -51,6 +73,8 @@ html,body
     padding-right: 1.6%;
     padding-bottom: 1.2%;
     box-sizing: border-box;
+
+
     
     /* sets semi-transparent fill for containers & applies backdrop blur effect */
     background-color: #0F192D99;

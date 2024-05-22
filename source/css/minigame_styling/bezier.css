@@ -83,7 +83,7 @@ html,body
     align-items: center;
 }
 
-.description-toggler:hover,.description-toggler.opened
+.description-toggler:hover
 {
 	background-color: #D8D8D820;
 }
@@ -92,7 +92,7 @@ html,body
 {
     font-variation-settings:
     "FILL" 1,
-    "wght" 500,
+    "wght" 600,
     "GRAD" 0,
     'opsz' 24;
     color: #D8D8D8FF;
@@ -121,7 +121,7 @@ html,body
 	box-sizing: border-box;
 	margin: 3% 0;
 
-	background-color: #D8D8D820;
+	background-color: #0F192D99;
 	backdrop-filter: blur(30px);
 	border-radius: 20px;
 	overflow: hidden;
@@ -137,7 +137,7 @@ html,body
 {
 	width: 100%;
 	height: fit-content;
-	padding: 25px;
+	padding: 40px;
 	box-sizing: border-box;
 	margin: 0;
 
@@ -145,7 +145,8 @@ html,body
     font-family: "Urbanist";
     font-weight: normal;
     font-size: 22px;
-    letter-spacing: 0.75px;
+    letter-spacing: 1.5px;
+	line-height: 30px;
     color: #D8D8D8FF;
 }
 
@@ -362,6 +363,7 @@ span.hamburger
 	gap: 5%;
 }
 
+
 .gamecard
 {
 	width: 100%;
@@ -370,8 +372,9 @@ span.hamburger
 	box-sizing: border-box;
 	margin: 0;
 
-	background-color: #C91438FF;
 	border-radius: 20px;
+
+	transition: background-colour 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
 	display: flex;
 	flex-direction: column;
@@ -379,7 +382,255 @@ span.hamburger
 	align-items: center;
 }
 
-.level1
+.gamecard.failure
 {
-	background-color: #4DC970FF;
+	background-color: #C91438FF;
+	box-shadow: 0 0 12px 2px #C91438FF;
+
+	animation: failureWiggle 0.5s ease-in-out;
+}
+
+.gamecard.success
+{
+	background-color: #44A3C1FF;
+	box-shadow: 0 0 12px 2px #44A3C1FF;
+
+	animation: successWiggle 0.5s ease-in-out;
+}
+
+.gamecard > h1
+{
+	width: fit-content;
+	height: fit-content;
+	padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+
+	text-align: center;
+    white-space: nowrap;
+    font-family: "Urbanist";
+    font-weight: 1000;
+    font-size: 40px;
+    letter-spacing: 2px;
+    color: #0F192DC5;
+	cursor: default;
+}
+
+.gamecard > .status-icons
+{
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.gamecard .status-icon
+{
+	width: fit-content;
+	height: fit-content;
+	padding: 12px;
+	box-sizing: content-box;
+	margin: 0;
+
+	background-color: #0F192DC5;
+	border-radius: 50%;
+	border-style: none;
+	cursor: default;
+
+	font-size: 54px;
+}
+
+.status-icon.cancelled
+{
+	position: relative;
+
+	color: #C91438FF;
+}
+
+.status-icon.checked
+{
+	position: absolute;
+
+	color: #44A3C1FF;
+	opacity: 0;
+}
+
+.gamecard.success .status-icon.checked
+{
+	opacity: 1;
+}
+
+.gamecard.success .status-icon.cancelled
+{
+	opacity: 0;
+}
+
+@keyframes failureWiggle
+{
+	from
+	{
+		transform: scale3d(0.8, 0.8, 0.8);
+	}
+	25%
+	{
+		transform: scale3d(1.1, 1.1, 1.1);
+	}
+	50%
+	{
+		transform: scale3d(0.9, 0.9, 0.9);
+	}
+	75%
+	{
+		transform: scale3d(1.05, 1.05, 1.05);
+	}
+	to
+	{
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+@keyframes successWiggle
+{
+	from
+	{
+		transform: scale3d(0.8, 0.8, 0.8);
+	}
+	25%
+	{
+		transform: scale3d(1.1, 1.1, 1.1);
+	}
+	50%
+	{
+		transform: scale3d(0.9, 0.9, 0.9);
+	}
+	75%
+	{
+		transform: scale3d(1.05, 1.05, 1.05);
+	}
+	to
+	{
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+.modal-overlay
+{
+	position: fixed;
+	left: 0;
+	top: 0;
+
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+
+	background-color: #090F1B9C;
+	backdrop-filter: blur(10px);
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	visibility: hidden;
+	overflow: hidden;
+}
+
+.modal-overlay.active
+{
+	visibility: visible;
+}
+
+.modal-box
+{
+	width: 60%;
+	height: 60%;
+	padding: 20px 60px;
+	box-sizing: border-box;
+	margin: 0;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 20px;
+
+	background-color: #2F3136DB;
+	backdrop-filter: blur(30px);
+	border-radius: 30px;
+}
+
+.modal-box .congrats-heading
+{
+	width: fit-content;
+	height: fit-content;
+	padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+
+	text-align: center;
+    font-family: "Urbanist";
+    font-weight: 800;
+    font-size: 42px;
+    letter-spacing: 2px;
+    color: #D8D8D8FF;
+
+	cursor: default;
+}
+
+.modal-box p
+{
+	width: fit-content;
+	height: fit-content;
+	padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+
+	text-align: justify;
+    font-family: "Urbanist";
+    font-weight: 800;
+    font-size: 26px;
+    letter-spacing: 2px;
+    color: #D8D8D8FF;
+
+	cursor: default;
+}
+
+.game-end-button
+{
+    width: fit-content;
+    height: fit-content;
+	padding: 10px 30px;
+    box-sizing: border-box;
+	margin: 0;
+
+	background-color: #D8D8D8FF;
+    border-radius: 15px;
+    border-style: none;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-end-button span.textual-info
+{
+	width: fit-content;
+    height: fit-content;
+	padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+
+    text-align: center;
+    white-space: nowrap;
+    font-family: "Urbanist";
+    font-weight: 800;
+    font-size: 40px;
+    letter-spacing: 2px;
+    color: #2F3136DB;                    
 }

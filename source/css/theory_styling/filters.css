@@ -352,3 +352,23 @@ span.controller
         opacity: 1;
     }
 }
+
+.illustration-container {
+    display: flex;              /* Enables flexbox */
+    flex-direction: column;     /* Stacks flex items vertically */
+    align-items: center;        /* Centers items horizontally */
+    justify-content: center;    /* Centers items vertically */
+    gap: 40px;                  /* Adds space between the items */
+    padding: 20px;              /* Padding around the content */
+    border-radius: 10px;        /* Rounded corners for the glass effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
+}
+
+.illustration {
+    width: 100%;                /* Makes the illustration take full width of the container */
+    display: flex;              /* Enables flexbox within each illustration for alignment */
+    justify-content: center;  
+}
+.image{
+    border-radius: 8px;
+}

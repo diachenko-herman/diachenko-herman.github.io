@@ -1,72 +1,216 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <!-- document head including metadata, icon for the browser tab, viewport settings, external resources (e.g. Google Fonts), ... -->
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width"/>
+<!-- document head including metadata, icon for the browser tab, viewport settings, external resources (e.g. Google Fonts), ... -->
 
-        <title> Mini-Game Colour Models | ScienTeens Lab | uni.lu </title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
 
-        <!-- loads and sets ScienTeens icon in tabs and bookmarks in different browsers --> 
-        <link rel="icon" sizes="any" href="../../../assets/images/scienteens_tab_icon.svg"/>
-        <link rel="apple-touch-icon" type="image/svg+xml" sizes="any" href="../../../assets/images/scienteens_tab_icon.svg"/>
-        <link rel="mask-icon" href="../../../assets/images/scienteens_tab_icon.svg"/>
-        <!-- includes Urbanist font (Google Fonts) into document -->
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>    
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"/>
-        <!-- includes Material Symbols (Google Fonts) into document -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-        <!-- custom stylesheet for colour models mini-game -->
-        <link rel="stylesheet" href="../../css/minigame_styling/colour.css">
+    <title> Picasso's Toolbox | ScienTeens Lab | uni.lu </title>
 
-        <script src="../../js_ts/minigame_template_script.js" defer></script>
-    </head>
+    <!-- loads and sets ScienTeens icon in tabs and bookmarks in different browsers -->
+    <link rel="icon" sizes="any" href="../../../assets/images/scienteens_tab_icon.svg" />
+    <link rel="apple-touch-icon" type="image/svg+xml" sizes="any"
+        href="../../../assets/images/scienteens_tab_icon.svg" />
+    <link rel="mask-icon" href="../../../assets/images/scienteens_tab_icon.svg" />
+    <!-- includes Urbanist font (Google Fonts) into document -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" />
+    <!-- includes Material Symbols (Google Fonts) into document -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- custom stylesheet for mini-game page template -->
 
-    <!-- document body containing actually visible content of HTML document -->
-    <body>
-        <div class="container">
-            <div class="header">
-                <div class="mission-description" id="mission-description">
-                    <div class="dropdown_headline" id="dropdown-button">
-                        <p class="dropdown_text"> Mission Description </p>
 
-                        <button class="dropdown_button" id="dropdown-button">
-                            <span class="material-symbols-rounded expand"> expand_circle_down </span>
-                        </button>
-                    </div>
+    <link rel="stylesheet" href="../../css/minigame_styling/colour.css">
+    <link rel="stylesheet" href="../../css/minigame_styling/colour_game_content.css">
+    <link rel="stylesheet" href="../../css/minigame_styling/colour_popup.css">
 
-                    <div class="ruler"> </div>
 
-                    <div class="mission-description-text">
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore
-                        eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia
-                        deserunt mollit anim id est laborum. 
-                        </p>
-                    </div>
+
+    <!-- custom stylesheet for colour models mini-game -->
+    <script src="../../js_ts/minigame_scripts/colour_game_logic.js" defer></script>
+</head>
+
+<!-- document body containing actually visible content of HTML document -->
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="mission-description" id="mission-description">
+                <div class="dropdown_headline" id="dropdown-button">
+                    <p class="dropdown_text"> Mission Description </p>
+
+                    <button class="dropdown_button" id="dropdown-button">
+                        <span class="material-symbols-rounded expand"> expand_circle_down </span>
+                    </button>
                 </div>
 
-                <div class="top-right-box">
-                    <a href="../theory_pages/colour.html">
-                        <button  class="back_to_theory_button">
-                            <span> Back to Theory </span>
-                        </button>
-                    </a>
-                    <a href="../main_page.html">
-                        <button class="main_menu_button">
-                            <span class="material-symbols-rounded hamburger"> menu_open </span>
-                        </button>
-                    </a>
+                <div class="ruler"> </div>
+
+                <div class="mission-description-text">
+                    <p>
+                        Welcome to the Color Mixing Challenge! In this game, your goal is to accurately mix colors to
+                        match the target color. Adjust the red, green, blue, and alpha
+                        sliders to create the exact color shown. Enter the corresponding HEX values for each color
+                        component in the provided fields. Once you think your mixture matches the target, check your
+                        solution. Succeed and advance through levels, each with its own unique color to match. Are you
+                        ready to test your color matching skills and learn about color theory in a fun, interactive way?
+                        Let's get started!
+                    </p>
                 </div>
             </div>
-            
-            <div class="main-panel"> 
 
-            </div>
+            <nav class="navigation-section">
+                <!-- icon+text button for page navigation to related theory page -->
+                <a href="../theory_pages/colour.html">
+                    <button class="theory-button">
+                        <span class="material-symbols-rounded book"> local_library </span>
+                        <span class="textual-info"> Back to Theory </span>
+                    </button>
+                </a>
+
+                <!-- icon+text button for page navigation to main page -->
+                <a href="../main_page.html">
+                    <button class="home-button">
+                        <span class="material-symbols-rounded hamburger"> menu_open </span>
+                        <span class="textual-info"> Back to Homebase </span>
+                    </button>
+                </a>
+            </nav>
         </div>
-    </body>
+
+        <div class="main-panel">
+
+
+
+            <div class="minigame_container">
+                <div class="color_container">
+                    <div class="color_container_layout">
+                        <div class="target_color">
+                            <span class="material-symbols-rounded help" id="help_button_fonts"> help </span>
+                            <span id="target_color_text_tooltip">Target color</span>
+                            <div class="color_box_target" id="target_color_box"></div>
+                        </div>
+                        <div class="mixture_color">
+                            <div class="mixture_box_color" id="mixture_color_box"></div>
+                            <span>Mixture</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="sliders-input_fields">
+                    <div class="sliders-input_fields_layout">
+                        <div class="sliders_layout">
+                            <div class="slider_container">
+                                <label class="color_label">R: <input type="range" min="0" max="255" value="0"
+                                        class="slider slider-red" id="red_slider"></label>
+                                <label class="color_label">G: <input type="range" min="0" max="255" value="0"
+                                        class="slider slider-green" id="green_slider"></label>
+                                <label class="color_label">B: <input type="range" min="0" max="255" value="0"
+                                        class="slider slider-blue" id="blue_slider"></label>
+                                <label class="color_label">Alpa: <input type="range" min="0" max="1" step="0.01"
+                                        value="0" class="slider slider-alpha" id="alpha_slider"></label>
+                            </div>
+                        </div>
+                        <div class="input_fields blocked">
+                            <div class="input_fields_cover"><span>Match mixture with target color to unlock</span></div>
+                            <div class="HEX_inputs_container">
+                                <div class="HEX_input_container" data-tooltip="Input HEX value for Red"><input
+                                        type="text" class="HEX_input" id="R" name="R" placeholder="00" maxlength="2"
+                                        oninput="checkColorMatch('R')">
+                                        <span class="passedHex" id="passedR"><img src="../../../assets/icons/passed.svg"></span>
+                                        <span class="failedHex" id="failedR"><img src="../../../assets/icons/failed.svg"></span>
+                                </div>
+                                <div class="HEX_input_container" data-tooltip="Input HEX value for Green"><input
+                                        type="text" class="HEX_input" id="G" name="G" placeholder="00" maxlength="2"
+                                        oninput="checkColorMatch('G')">
+                                        <span class="passedHex" id="passedG"><img src="../../../assets/icons/passed.svg"></span>
+                                        <span class="failedHex" id="failedG"><img src="../../../assets/icons/failed.svg"></span>
+                                </div>
+                                <div class="HEX_input_container" data-tooltip="Input HEX value for Blue"><input
+                                        type="text" class="HEX_input" id="B" name="B" placeholder="00" maxlength="2"
+                                        oninput="checkColorMatch('B')">
+                                        <span class="passedHex" id="passedB"><img src="../../../assets/icons/passed.svg"></span>
+                                        <span class="failedHex" id="failedB"><img src="../../../assets/icons/failed.svg"></span>
+                                </div>
+                                <div class="HEX_input_container" data-tooltip="Input HEX value for Alpha"><input
+                                        type="text" class="HEX_input" id="A" name="A" placeholder="00" maxlength="2"
+                                        oninput="checkColorMatch('A')">
+                                        <span class="passedHex" id="passedA"><img src="../../../assets/icons/passed.svg"></span>
+                                        <span class="failedHex" id="failedA"><img src="../../../assets/icons/failed.svg"></span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="RGB-HEX">
+                    <div class="RGB-HEX_layout">
+                        <div class="RGB_container">
+                            <div class="color_values_container">
+                                <div class="color_value_container red_value"><span id="r_value">255</span></div>
+                                <div class="color_value_container green_value"><span id="g_value">255</span></div>
+                                <div class="color_value_container blue_value"><span id="b_value">255</span></div>
+                                <div class="color_value_container alpha_value"><span id="a_value">255</span></div>
+                            </div>
+                            <div class="color_big_labels_container">
+                                <div class="color_big_label_container red_label_big_container"><span>R</span></div>
+                                <div class="color_big_label_container green_label_big_container"><span>G</span></div>
+                                <div class="color_big_label_container blue_label_big_container"><span>B</span></div>
+                                <div class="color_big_label_container alpha_label_big_container"><span>Alpha</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="HEX">
+                            <div class="circle_button_cover blocked"><span>Blocked</span></div>
+                            <div class="hex_button_container" id="circle_button_container"
+                                data-tooltip="Compute complete HEX code to unblock this button">
+                                <button class="hex_button" id="circle_button">
+                                    <span class="material-symbols-rounded check_circle" id="circle_button_fonts">
+                                        check_circle </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="popup-overlay" id="popupOverlay">
+
+                <div class="popup" id="popup">
+
+                    <div class="popup-content">
+
+                        <p class="color_targeted">Congratulations! You did it!</p>
+
+                        <p class="hex_description">Now you need to compute HEX values for each RGBA value.
+                            <br>For example, to convert the decimal number 255 to hexadecimal You need to:
+                            <br>Divide the number by 16. 255 divided by 16 is 15 with a remainder of 15.
+                            <br>Convert the quotient and the remainder to hexadecimal. Both 15 correspond to F in
+                            hexadecimal.
+                            <br>Combine them. The result is FF.
+                        </p>
+
+                        <button id="got_it">Got it!</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+</body>
+
 </html>

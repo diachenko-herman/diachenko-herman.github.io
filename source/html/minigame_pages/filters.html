@@ -1,72 +1,268 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <!-- document head including metadata, icon for the browser tab, viewport settings, external resources (e.g. Google Fonts), ... -->
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width"/>
+<!-- document head including metadata, icon for the browser tab, viewport settings, external resources (e.g. Google Fonts), ... -->
 
-        <title> Mini-Game Filters & Effects | ScienTeens Lab | uni.lu </title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
 
-        <!-- loads and sets ScienTeens icon in tabs and bookmarks in different browsers --> 
-        <link rel="icon" sizes="any" href="../../../assets/images/scienteens_tab_icon.svg"/>
-        <link rel="apple-touch-icon" type="image/svg+xml" sizes="any" href="../../../assets/images/scienteens_tab_icon.svg"/>
-        <link rel="mask-icon" href="../../../assets/images/scienteens_tab_icon.svg"/>
-        <!-- includes Urbanist font (Google Fonts) into document -->
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>    
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"/>
-        <!-- includes Material Symbols (Google Fonts) into document -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-        <!-- custom stylesheet for filters mini-game -->
-        <link rel="stylesheet" href="../../css/minigame_styling/filters.css">
+    <title> Pixel-Mining Adventure | ScienTeens Lab | uni.lu</title>
 
-        <script src="../../js_ts/minigame_template_script.js" defer></script>
-    </head>
+    <!-- loads and sets ScienTeens icon in tabs and bookmarks in different browsers -->
+    <link rel="icon" sizes="any" href="../../../assets/images/scienteens_tab_icon.svg" />
+    <link rel="apple-touch-icon" type="image/svg+xml" sizes="any"
+        href="../../../assets/images/scienteens_tab_icon.svg" />
+    <link rel="mask-icon" href="../../../assets/images/scienteens_tab_icon.svg" />
+    <!-- includes Urbanist font (Google Fonts) into document -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- document body containing actually visible content of HTML document -->
-    <body>
-        <div class="container">
-            <div class="header">
-                <div class="mission-description" id="mission-description">
-                    <div class="dropdown_headline" id="dropdown-button">
-                        <p class="dropdown_text"> Mission Description </p>
 
-                        <button class="dropdown_button" id="dropdown-button">
-                            <span class="material-symbols-rounded expand"> expand_circle_down </span>
-                        </button>
-                    </div>
 
-                    <div class="ruler"> </div>
+    
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" />
+    <!-- includes Material Symbols (Google Fonts) into document -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- custom stylesheet for mini-game page template -->
 
-                    <div class="mission-description-text">
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore
-                        eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia
-                        deserunt mollit anim id est laborum. 
-                        </p>
-                    </div>
+    <!-- custom stylesheet for filters mini-game -->
+    <link rel="stylesheet" href="../../css/minigame_styling/filters.css">
+    <link rel="stylesheet" href="../../css/minigame_styling/filters_layout.css">
+    <link rel="stylesheet" href="../../css/minigame_styling/filters_popup.css">
+
+    <script src="../../js_ts/minigame_scripts/filters_dropdown.js" defer></script>
+    <script src="../../js_ts/minigame_scripts/filters_game_logic.js" defer></script>
+</head>
+
+<!-- document body containing actually visible content of HTML document -->
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="mission-description" id="mission-description">
+                <div class="dropdown_headline" id="dropdown-button">
+                    <p class="dropdown_text"> Mission Description </p>
+
+                    <button class="dropdown_button" id="dropdown-button">
+                        <span class="material-symbols-rounded expand"> expand_circle_down </span>
+                    </button>
                 </div>
 
-                <div class="top-right-box">
-                    <a href="../theory_pages/filters.html">
-                        <button  class="back_to_theory_button">
-                            <span> Back to Theory </span>
-                        </button>
-                    </a>
-                    <a href="../main_page.html">
-                        <button class="main_menu_button">
-                            <span class="material-symbols-rounded hamburger"> menu_open </span>
-                        </button>
-                    </a>
+                <div class="ruler"> </div>
+
+                <div class="mission-description-text">
+                    <p>
+                        On the right hand-side you can find the original grayscale image. In the middle is the Gaussian Blur
+                        Kernel which
+                        is a matrix used to calculate weighted averages of pixel values. On the left is an unfinished
+                        image in which
+                        3 pixels are missing, you must find their values.
+                        <br>
+                        <br>To do this you need:
+                        <br>-Center the kernel on a pixel (the center of the matrix must coincide with the target pixel).
+                        <br>-Multiply the surrounding pixel values by the corresponding kernel values.
+                        <br>-Sum all these products.
+                        <br>-Divide the sum by the total weight of the kernel(16).
+                        <br>hint *if a pixel is missing take its value as 0*
+                    </p>
                 </div>
             </div>
+
+            <nav class="navigation-section">
+                <!-- icon+text button for page navigation to related theory page -->
+                <a href="../theory_pages/filters.html">
+                    <button class="theory-button">
+                        <span class="material-symbols-rounded book"> local_library </span>
+                        <span class="textual-info"> Back to Theory </span>
+                    </button>
+                </a>
+
+                <!-- icon+text button for page navigation to main page -->
+                <a href="../main_page.html">
+                    <button class="home-button">
+                        <span class="material-symbols-rounded hamburger"> menu_open </span>
+                        <span class="textual-info"> Back to Homebase </span>
+                    </button>
+                </a>
+            </nav>
             
-            <div class="main-panel"> 
+        </div>
+
+        <div class="main-panel">
+            <div class="help-button-container">
+                <span class="material-symbols-rounded help" id="help_button_fonts" >help</span>
+                <img src="../../../assets/images/Calc_Example.png" alt="Help Image" class="help-image">
+            </div>
+            <div class="game-area">
+                
+                <div class="matrix-panel" id="original-grayscale">
+                    
+                    <div class="matrix">
+                        <!-- Static matrix cells filled with values -->
+                        <div class="matrix-row">
+                            <div class="matrix-cell">132</div>
+                            <div class="matrix-cell">179</div>
+                            <div class="matrix-cell">136</div>
+                            <div class="matrix-cell">198</div>
+                        </div>
+                        <div class="matrix-row">
+                            <div class="matrix-cell">223</div>
+                            <div class="matrix-cell">201</div>
+                            <div class="matrix-cell">130</div>
+                            <div class="matrix-cell">177</div>
+                        </div>
+                        <div class="matrix-row">
+                            <div class="matrix-cell">202</div>
+                            <div class="matrix-cell">156</div>
+                            <div class="matrix-cell">165</div>
+                            <div class="matrix-cell">101</div>
+                        </div>
+                        <div class="matrix-row">
+                            <div class="matrix-cell">222</div>
+                            <div class="matrix-cell">119</div>
+                            <div class="matrix-cell">143</div>
+                            <div class="matrix-cell">176</div>
+                        </div>
+                        <div class="matrix-row">
+                            <div class="matrix-cell">255</div>
+                            <div class="matrix-cell">192</div>
+                            <div class="matrix-cell">189</div>
+                            <div class="matrix-cell">232</div>
+                        </div>
+                    </div>
+                    <h3>Original Grayscale Image</h3>
+                </div>
+                <div class="fraction"><sup>1</sup>&frasl;<sub>16</sub></div>
+                <div class="kernel-panel" id="gaussian-kernel">
+
+                    <div class="kernel">
+                        <!-- Static kernel matrix cells filled with values -->
+                        <div class="matrix-row">
+                            <div class="matrix-cell">1</div>
+                            <div class="matrix-cell">2</div>
+                            <div class="matrix-cell">1</div>
+                        </div>
+                        <div class="matrix-row">
+                            <div class="matrix-cell">2</div>
+                            <div class="matrix-cell">4</div>
+                            <div class="matrix-cell">2</div>
+                        </div>
+                        <div class="matrix-row">
+                            <div class="matrix-cell">1</div>
+                            <div class="matrix-cell">2</div>
+                            <div class="matrix-cell">1</div>
+                        </div>
+                    </div>
+                    <h3>Gaussian Blur Kernel</h3>
+                </div>
+                <div><span class="material-symbols-rounded arrow-right">arrow_circle_right</span></div>
+                <div class="matrix-panel" id="resulting-image">
+
+                    <div class="matrix">
+                        <div class="matrix-row">
+                            <div class="matrix-cell">96</div>
+                            <div class="matrix-cell">125</div>
+                            <div class="matrix-cell">109</div>
+                            <div class="matrix-cell">97</div>
+                        </div>
+                        <div class="matrix-row">
+                            <div class="matrix-cell">144</div>
+                            <div class="matrix-cell">176</div>
+                            <div class="matrix-cell"><input type="text" placeholder="?" id="input1" value="" class="matrix-input" /></div>
+                            <div class="matrix-cell">117</div>
+                        </div>
+                        <div class="matrix-row">
+                            <div class="matrix-cell">146</div>
+                            <div class="matrix-cell">170</div>
+                            <div class="matrix-cell">150</div>
+                            <div class="matrix-cell">107</div>
+                        </div>
+                        <div class="matrix-row">
+                            <div class="matrix-cell">149</div>
+                            <div class="matrix-cell"><input type="text" placeholder="?" id="input2" value="" class="matrix-input" /></div>
+                            <div class="matrix-cell">159</div>
+                            <div class="matrix-cell">123</div>
+                        </div>
+                        <div class="matrix-row">
+                            <div class="matrix-cell">123</div>
+                            <div class="matrix-cell"><input type="text" placeholder="?" id="input3" value="" class="matrix-input" /></div>
+                            <div class="matrix-cell">137</div>
+                            <div class="matrix-cell">113</div>
+                        </div>
+                    </div>
+                    <h3>Resulting Image</h3>
+                </div>
+                
+            </div>
+            <div class="second-game">
+
+                <div class="game-panel">
+                    
+                    <img src="../../../assets/images/Dog_Blur.png" class="Image">
+                    <h3>Initial Image</h3>
+                </div>
+
+                
+                <div class="game-panel">
+                    <img src="../../../assets/images/Dog_Clean.png" class="Image">
+                    <h3>Target Image</h3>
+                </div>
+                <div><span class="material-symbols-rounded arrow-right">arrow_circle_right</span></div>
+                <div class="kernel-panel" id="resulting-matrix">
+                    <div class="kernel-game">
+                        <div class="matrix-row">
+                            <div class="matrix-cell"><input type="text" placeholder="?" id="input4" value="" class="matrix-input" /></div>
+                            <div class="matrix-cell"><input type="text" placeholder="?" id="input5" value="" class="matrix-input" /></div>
+                            <div class="matrix-cell"><input type="text" placeholder="?" id="input6" value="" class="matrix-input" /></div>
+                        </div>
+                        <div class="matrix-row">
+                            <div class="matrix-cell"><input type="text" placeholder="?" id="input7" value="" class="matrix-input" /></div>
+                            <div class="matrix-cell"><input type="text" placeholder="?" id="input8" value="" class="matrix-input" /></div>
+                            <div class="matrix-cell"><input type="text" placeholder="?" id="input9" value="" class="matrix-input" /></div>
+                        </div>
+                        <div class="matrix-row">
+                            <div class="matrix-cell">0</div>
+                            <div class="matrix-cell"><input type="text" placeholder="?" id="input10" value="" class="matrix-input" /></div>
+                            <div class="matrix-cell"><input type="text" placeholder="?" id="input11" value="" class="matrix-input" /></div>
+                        </div>
+                    </div>
+                    <h3>Sharpening Kernel </h3>
+                    <!-- Add more cells as needed -->
+                </div>
 
             </div>
         </div>
-    </body>
+
+        <div class="popup-overlay" id="popupOverlay">
+
+            <div class="popup" id="popup">
+
+                <div class="popup-content">
+
+                    <p class="color_targeted">Congratulations! You did it!</p>
+
+                    <p class="hex_description">But there are also many other convolutional matrices that we use without even realizing it.
+                        <br><br>
+                        <br>For now, I suggest you explore the game with Sharpening Filter for more understanding of this topic.
+                        
+                        <br>
+                        <br>
+                    </p>
+
+                    <button id="got_it">Got it!</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+</body>
+
 </html>

@@ -44,11 +44,17 @@
                     <!-- collapsible dropdown content panel -->
                     <div class="description-panel"> 
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                            aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore
-                            eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia
-                            deserunt mollit anim id est laborum. 
+                            There you go! &#127918; The task seems (and actually is) very simple to give you some intuition on how low-order Bézier curves 
+                            behave by modifying their control points. <br>
+                            <br>
+                            Your goal is to find your way from the ScienTeens Lab, where you are currently sitting, aaaaaaall the way to your nerdy
+                            game cave where you can spend hours and hours of finest gaming &#128520; But of course, you cannot simply escape this academic dungeon, 
+                            as you might be confronted with profs wanting you to participate in class, insanely hard-working students giving you guilty conscience,
+                            super fancy infrastructure at the Luxembourg Learning Centre (the big white glass building very close to you), etc ... &#128561; <br>
+                            <br>
+                            However, you can avoid all of these by dragging the indicated control points of the three individual Bézier curves such that you 
+                            obtain one smooth curve from start to finish – avoiding the obstacles is not enough. In other words, the entire travel path should like 
+                            one continuous curve without being jagged. So, good luck and have fun! &#129488;
                         </p>
                     </div>
                 </div>
@@ -82,18 +88,74 @@
 
                 <!-- vertical flexbox container for success status of different game stages -->
                 <div class="game-status">
-                    <div class="gamecard level1">
+                    <div class="gamecard level1 failure">
+                        <h1>
+                            Stage A
+                        </h1>
 
+                        <div class="status-icons">
+                            <span class="material-symbols-rounded status-icon cancelled">
+                                cancel
+                            </span>
+
+                            <span class="material-symbols-rounded status-icon checked">
+                                check_circle
+                            </span>
+                        </div>
                     </div>
 
-                    <div class="gamecard level2">
+                    <div class="gamecard level2 failure">
+                        <h1>
+                            Stage B
+                        </h1>
 
+                        <div class="status-icons">
+                            <span class="material-symbols-rounded status-icon cancelled">
+                                cancel
+                            </span>
+
+                            <span class="material-symbols-rounded status-icon checked">
+                                check_circle
+                            </span>
+                        </div>
                     </div>
 
-                    <div class="gamecard level3">
+                    <div class="gamecard level3 failure">
+                        <h1>
+                            Stage C
+                        </h1>
 
+                        <div class="status-icons">
+                            <span class="material-symbols-rounded status-icon cancelled">
+                                cancel
+                            </span>
+
+                            <span class="material-symbols-rounded status-icon checked">
+                                check_circle
+                            </span>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- modal (pop-up) overlay upon game completion -->
+        <div id="modal" class="modal-overlay">
+            <div class="modal-box">
+                <h1 class="congrats-heading"> Wow! You cooked one entire Bézier noodle! &#127836; </h1>
+
+                <p>
+                    That said, you certainly deserve a break after all these mathematical signs and shapes having messed with your head &#x1F92F; <br>
+                    <br>
+                    However, if you are still hungry for more super fun knowledge on Computer Graphics, we invite you to visit again the Homebase
+                    to embark on your next adventure! &#128506;
+                </p>
+
+                <a href="../main_page.html">
+                    <button class="game-end-button">
+                        <span class="textual-info"> Homebase </span>
+                    </button>
+                </a>
             </div>
         </div>
     </body>

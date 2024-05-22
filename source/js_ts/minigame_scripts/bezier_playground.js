@@ -142,11 +142,16 @@ function drawBezierA ()
         {
             bezierAColor = successColor;
             stageACompleted = true;
+            
+            updateStageSuccess(".level1");
+            checkGameSuccess();
         }
         else
         {
             bezierAColor = failureColor;
             stageACompleted = false;
+
+            updateStageFailure(".level1");
         }
     }
 }
@@ -188,11 +193,16 @@ function drawBezierB ()
         {
             bezierBColor = successColor;
             stageBCompleted = true;
+
+            updateStageSuccess(".level2");
+            checkGameSuccess();
         }
         else
         {
             bezierBColor = failureColor;
             stageBCompleted = false;
+
+            updateStageFailure(".level2");
         }
     }
 }
@@ -222,11 +232,16 @@ function drawBezierC ()
         {
             bezierCColor = successColor;
             stageCCompleted = true;
+
+            updateStageSuccess(".level3");
+            checkGameSuccess();
         }
         else
         {
             bezierCColor = failureColor;
             stageCCompleted = false;
+
+            updateStageFailure(".level3");
         }
     }
 }
@@ -423,3 +438,35 @@ window.addEventListener ("load", function ()
 
     animatedSetup(2500, easeOut(overshoot));
 });
+
+
+
+
+
+/* ------------------------------------------------------------------------- */
+/* script for toggling of game status cards upon successfull curve modelling */
+/* ------------------------------------------------------------------------- */
+
+function updateStageSuccess (levelName)
+{
+    const levelCard = document.querySelector(levelName);
+    levelCard.classList.remove("failure");
+    levelCard.classList.add("success");
+}
+
+function updateStageFailure (levelName)
+{
+    const levelCard = document.querySelector(levelName);
+    levelCard.classList.remove("success");
+    levelCard.classList.add("failure");
+}
+
+function checkGameSuccess ()
+{
+    if (stageACompleted && stageBCompleted && stageCCompleted)
+    {
+        const modal = document.querySelector("#modal");
+
+        setTimeout(() => { modal.classList.add("active"); }, 750);
+    }
+}
