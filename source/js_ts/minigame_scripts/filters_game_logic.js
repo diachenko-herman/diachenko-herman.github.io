@@ -2,12 +2,12 @@ window.addEventListener("load", function() {
     const inputs = document.querySelectorAll('#resulting-image .matrix-input');
     const matrixInputs = document.querySelectorAll('#resulting-matrix .matrix-input');
     const gameArea = document.querySelector('.game-area');
-    const popupOverlay = document.getElementById('popupOverlay');
+    const popupOverlay = document.getElementById('popUpOverlay');
     const gotItButton = document.getElementById('got_it');
     const secondGame = document.querySelector('.second-game'); 
     const missionDescription = document.querySelector('.mission-description-text p');
     const helpImage = document.querySelector('.help-button-container .help-image');
-    let popupText = this.document.querySelector('.hex_description');
+    let popupText = this.document.querySelector('.popup-content');
     let finished = false;
 
     const correctValues = {
@@ -42,7 +42,7 @@ window.addEventListener("load", function() {
                 this.disabled = true;
 
                 if (checkInputsCorrect(inputs)) {
-                    popupOverlay.style.display = 'block';
+                    popupOverlay.style.visibility = 'visible';
                     gameArea.style.display = "none";
                 }
             } else {
@@ -53,7 +53,7 @@ window.addEventListener("load", function() {
     });
 
     gotItButton.addEventListener('click', function() {
-        popupOverlay.style.display = 'none';
+        popupOverlay.style.visibility = 'hidden';
         if(finished){
             window.location.href = '../main_page.html'; // Adjust the path as necessary
         }
@@ -78,7 +78,8 @@ window.addEventListener("load", function() {
                     
                     if (checkInputsCorrect(matrixInputs)) {
                         popupText.innerHTML = `<p>You have done all games in the Filters section! </p>You will be redirected to the Homebase page.`;
-                        popupOverlay.style.display = "block";
+                        gotItButton.innerHTML = 'Homebase';
+                        popupOverlay.style.visibility = "visible";
                         finished = true;
                     }
                 } else {
