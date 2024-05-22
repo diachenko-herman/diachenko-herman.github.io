@@ -31,7 +31,7 @@
  const canvasDim = playgroundCanvas.getBoundingClientRect();
 
 // valid control points & success status of individual game stages
-let stageAcp = {x: 27, y: 0};
+let stageAcp = {x: 27, y: 2};
 let stageBcp = {x1: 158, y1: 143, x2: 135, y2: 13};
 let stageCcp = {x: 208, y: 122};
 
